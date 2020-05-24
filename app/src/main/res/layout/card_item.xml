@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#95FFEB3B">
+
+        <ImageView
+            android:id="@+id/imagePizza"
+            android:layout_width="160dp"
+            android:layout_height="240dp"
+            android:layout_marginRight="8dp"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/pizzaName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/imagePizza"
+            android:text="TextView"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/pizzaText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pizzaName"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@id/imagePizza"
+            android:text="TextView"
+            android:textColor="#C9000000"
+            android:textSize="12sp" />
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
