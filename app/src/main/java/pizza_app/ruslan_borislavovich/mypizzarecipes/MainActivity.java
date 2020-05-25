@@ -1,12 +1,14 @@
 package pizza_app.ruslan_borislavovich.mypizzarecipes;
 
 import android.content.Intent;
+
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.Gravity;
+
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+
 import android.view.inputmethod.EditorInfo;
 import android.widget.SearchView;
 import androidx.annotation.NonNull;
@@ -45,28 +47,39 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
         setSupportActionBar(toolbar);
         drawer = findViewById(R.id.drawer_layout);
-        toggle = new ActionBarDrawerToggle(this, drawer, toolbar,R.string.navigation_drawer_open ,R.string.navigation_drawer_close);
+
+        toggle = new ActionBarDrawerToggle(this, drawer, toolbar,R.string.navigation_drawer_open ,R.string.navigation_drawer_close){
+
+        };
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
     }
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.home:
-                drawer.closeDrawer(Gravity.LEFT);
+
+                drawer.closeDrawer(GravityCompat.START);
                 break;
             case R.id.favorite:
                 Intent intentFavorite = new Intent(this, FavoriteActivity.class);
                 startActivity(intentFavorite);
+
+                drawer.closeDrawer(GravityCompat.START);
                 break;
             case R.id.thumb:
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + getPackageName())));
+                drawer.closeDrawer(GravityCompat.START);
                 break;
             case R.id.more:
                 Intent intentMore = new Intent(this, MoreActivity.class);
                 startActivity(intentMore);
+                drawer.closeDrawer(GravityCompat.START);
                 break;
         }
+        drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
